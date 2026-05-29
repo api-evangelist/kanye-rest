@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/kanye-rest/refs/heads/main/json-structure/kanye-rest-quote-list-structure.json",
+  "name": "QuoteList",
+  "description": "The complete collection of available Kanye West quotes as plain strings.",
+  "type": "array",
+  "items": {
+    "type": "string",
+    "description": "A single Kanye West quote text.",
+    "example": "Believe in your flyness...conquer your shyness."
+  }
+}

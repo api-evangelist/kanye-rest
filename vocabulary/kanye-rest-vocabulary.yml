@@ -1,0 +1,138 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Kanye REST"
+  description: >-
+    Vocabulary for the Kanye REST API — a free, single-purpose REST API
+    that returns random Kanye West quotes. Captures the operational
+    dimension (three GET endpoints across one tag, two domain schemas)
+    and the capability dimension (a single Quotes capability with three
+    MCP tools and three REST resources).
+  created: "2026-05-29"
+  modified: "2026-05-29"
+
+# OPERATIONAL DIMENSION (from OpenAPI)
+operational:
+  apis:
+    - name: "Kanye REST"
+      namespace: "kanye-rest"
+      version: "1.0.0"
+      baseUrl: "https://api.kanye.rest"
+      status: active
+
+  resources:
+    - name: "quotes"
+      api: "kanye-rest"
+      description: "Kanye West quote text returned by the API."
+      actions:
+        - getRandomQuote
+        - getRandomQuoteText
+        - listAllQuotes
+
+  actions:
+    - name: "get"
+      verb: "get"
+      pattern: read
+      httpMethod: GET
+      operations:
+        - getRandomQuote
+        - getRandomQuoteText
+    - name: "list"
+      verb: "list"
+      pattern: read
+      httpMethod: GET
+      operations:
+        - listAllQuotes
+
+  schemas:
+    core:
+      - name: Quote
+        properties:
+          - quote
+        description: "JSON envelope around a single Kanye West quote string."
+      - name: QuoteList
+        properties: []
+        description: "Array of all available Kanye West quote strings."
+
+  parameters:
+    pagination: []
+    identifiers: []
+    filters: []
+
+  enums: {}
+
+  authentication:
+    schemes: []
+    notes: "Kanye REST is fully open; no API key, token, or scoped credential is required."
+
+# CAPABILITY DIMENSION (from Naftiko)
+capability:
+  workflows:
+    - name: "Kanye REST — Quotes"
+      file: "capabilities/kanye-rest-quotes.yaml"
+      description: "Self-contained capability exposing the three Kanye REST endpoints over both a Spectral-compliant REST surface and an MCP tool surface."
+      apisCombined:
+        - kanye-rest
+      toolCount: 3
+      restResourceCount: 3
+      personas:
+        - bot-builder
+        - shell-scripter
+        - frontend-tutorial-author
+      domains:
+        - Personality
+        - Quotes
+
+  personas:
+    - id: bot-builder
+      name: "Bot Builder"
+      description: "Builds Slack, Discord, and Twitter bots that inject playful Kanye quotes into channels."
+      workflows:
+        - "Kanye REST — Quotes"
+    - id: shell-scripter
+      name: "Shell Scripter"
+      description: "Pipes the /text endpoint into cron jobs, motd files, and daily-quote scripts."
+      workflows:
+        - "Kanye REST — Quotes"
+    - id: frontend-tutorial-author
+      name: "Frontend Tutorial Author"
+      description: "Uses Kanye REST as a zero-friction fixture for teaching fetch / loading / error patterns."
+      workflows:
+        - "Kanye REST — Quotes"
+
+  domains:
+    - name: "Personality"
+      description: "APIs centered on a single public figure, persona, or character."
+      resources:
+        - quotes
+      workflows:
+        - "Kanye REST — Quotes"
+    - name: "Quotes"
+      description: "APIs that surface short pieces of attributed text."
+      resources:
+        - quotes
+      workflows:
+        - "Kanye REST — Quotes"
+
+  namespaces:
+    - consumed: "kanye-rest-quotes"
+      rest: "kanye-rest-quotes-rest"
+      mcp: "kanye-rest-quotes-mcp"
+      restPort: 8080
+      mcpPort: 9090
+
+  binds: []
+
+# CROSS-REFERENCE
+crossReference:
+  - resource: quotes
+    operations:
+      - getRandomQuote
+      - getRandomQuoteText
+      - listAllQuotes
+    workflows:
+      - "Kanye REST — Quotes"
+    personas:
+      - bot-builder
+      - shell-scripter
+      - frontend-tutorial-author

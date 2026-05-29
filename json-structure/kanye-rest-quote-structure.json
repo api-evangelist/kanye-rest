@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/kanye-rest/refs/heads/main/json-structure/kanye-rest-quote-structure.json",
+  "name": "Quote",
+  "description": "A single random Kanye West quote wrapped in a JSON envelope.",
+  "type": "object",
+  "required": [
+    "quote"
+  ],
+  "properties": {
+    "quote": {
+      "type": "string",
+      "description": "The Kanye West quote text returned by the API.",
+      "example": "Everything you do in life stems from either fear or love"
+    }
+  }
+}

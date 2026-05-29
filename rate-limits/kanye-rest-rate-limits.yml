@@ -1,0 +1,89 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+
+provider: Kanye REST
+providerId: kanye-rest
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: false
+
+tags:
+  - Rate Limiting
+  - Personality
+  - Quotes
+  - Open Source
+  - Cloudflare Workers
+
+description: >-
+  Kanye REST is a free, unauthenticated single-purpose API hosted on
+  Cloudflare Workers. The maintainer does not publish any per-key, per-IP,
+  or per-account request-rate limits in the project README or on the
+  kanye.rest landing page. Because the service runs on the Cloudflare
+  Workers Free plan, traffic is subject to Cloudflare's underlying
+  platform protections (Workers daily request caps, sub-request limits,
+  and CDN-edge DDoS / abuse mitigation), but these are not surfaced as
+  documented API contracts. Consumers should treat the API as best-effort
+  and apply client-side throttling, caching, and exponential backoff.
+
+sources:
+  - https://kanye.rest
+  - https://github.com/ajzbc/kanye.rest
+  - https://developers.cloudflare.com/workers/platform/limits/
+
+responseCodes:
+  throttled: 429
+  serverError: 500
+
+limits:
+  - name: Documented per-key request rate
+    scope: key
+    metric: requests_per_second
+    limit: 'not documented — service does not publish per-key or per-account rate limits'
+    notes: >-
+      The provider does not publish numeric request-rate limits. Plan for
+      best-effort access and degrade gracefully.
+
+  - name: Platform-level Cloudflare Workers Free plan caps
+    scope: account
+    metric: varies
+    limit: 'see https://developers.cloudflare.com/workers/platform/limits/'
+    notes: >-
+      Underlying runtime is Cloudflare Workers (Free plan). The Cloudflare
+      platform applies its own daily request caps, sub-request limits, CPU
+      time limits, and edge abuse-mitigation policies that effectively
+      bound throughput regardless of the absence of provider-defined
+      limits.
+
+  - name: Edge DDoS / abuse mitigation
+    scope: IP
+    metric: varies
+    limit: 'enforced opaquely by Cloudflare edge'
+    notes: >-
+      Excessive request rates from a single source IP may trigger
+      Cloudflare's standard bot / DDoS protection (challenge pages, 429s,
+      or temporary blocks) independently of any provider-defined limit.
+
+policies:
+  - name: Apply client-side throttling
+    description: >-
+      Because no published limits exist, consumers should self-throttle
+      (e.g. 1 request per second per client) and cache the /quotes
+      response rather than refetching the full collection per request.
+
+  - name: Use exponential backoff on 429 / 5xx
+    description: >-
+      On HTTP 429 or 5xx responses, back off exponentially before
+      retrying. The API has no Retry-After header and no remaining-budget
+      header to consult, so blind backoff is the safest strategy.
+
+  - name: Prefer /quotes for bulk usage
+    description: >-
+      If a consumer needs many quotes, call GET /quotes once and sample
+      locally rather than calling GET / repeatedly. This reduces edge
+      load and avoids triggering Cloudflare's per-IP mitigations.
+
+  - name: No authentication, no per-key quota
+    description: >-
+      The service does not issue API keys, so all consumers share the
+      same anonymous bucket from the perspective of the upstream edge.

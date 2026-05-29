@@ -1,0 +1,24 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "kanye": "https://kanye.rest/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "Quote": "kanye:Quote",
+    "QuoteList": "kanye:QuoteList",
+
+    "quote": {
+      "@id": "schema:text",
+      "@type": "xsd:string"
+    },
+    "author": {
+      "@id": "schema:author",
+      "@type": "@id"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url"
+  }
+}

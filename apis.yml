@@ -1,32 +1,117 @@
 aid: kanye-rest
 name: kanye.rest
-description: "REST API for random Kanye West quotes"
+description: >-
+  Free single-purpose REST API that returns random Kanye West quotes, dubbed
+  "Kanye as a Service." Hosted on Cloudflare Workers, the API exposes a JSON
+  endpoint, a plain-text endpoint, and a full-quotes-array endpoint. The
+  underlying project is open source (MIT) under github.com/ajzbc/kanye.rest
+  and is a popular example of a minimal "fun" public API.
 url: https://kanye.rest
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-05-29'
 x-source: public-apis/public-apis
-x-category: "Personality"
+x-type: opensource
+x-category: Personality
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis
 tags:
   - Personality
+  - Quotes
+  - Open Source
+  - Cloudflare Workers
   - Public APIs
 apis:
   - name: kanye.rest
-    description: "REST API for random Kanye West quotes"
+    description: >-
+      The Kanye REST API returns random Kanye West quotes. Three operations
+      are exposed: a JSON quote endpoint at the root, a plain-text endpoint
+      at /text, and a full-collection endpoint at /quotes returning all
+      quotes as a JSON array. All endpoints are unauthenticated GETs with
+      permissive CORS.
     humanURL: https://kanye.rest
-    baseURL: https://kanye.rest
+    baseURL: https://api.kanye.rest
     tags:
       - Personality
+      - Quotes
     properties:
       - type: Documentation
         url: https://kanye.rest
+      - type: SourceCode
+        url: https://github.com/ajzbc/kanye.rest
+      - type: OpenAPI
+        url: openapi/kanye-rest-openapi.yml
+      - type: NaftikoCapability
+        url: capabilities/kanye-rest-quotes.yaml
 common:
   - type: Website
     url: https://kanye.rest
+  - type: SourceCode
+    url: https://github.com/ajzbc/kanye.rest
+  - type: License
+    url: https://github.com/ajzbc/kanye.rest/blob/master/LICENSE
+    title: MIT License
+  - type: CLI
+    url: https://github.com/ajzbc/kanye.rest-cli
+    title: kanye.rest-cli (archived)
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
+  - type: SpectralRules
+    url: rules/kanye-rest-spectral-rules.yml
+  - type: Vocabulary
+    url: vocabulary/kanye-rest-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/kanye-rest-context.jsonld
+  - type: JSONSchema
+    url: json-schema/kanye-rest-quote-schema.json
+    title: Quote
+  - type: JSONSchema
+    url: json-schema/kanye-rest-quote-list-schema.json
+    title: QuoteList
+  - type: JSONStructure
+    url: json-structure/kanye-rest-quote-structure.json
+    title: Quote
+  - type: JSONStructure
+    url: json-structure/kanye-rest-quote-list-structure.json
+    title: QuoteList
+  - type: Example
+    url: examples/kanye-rest-quote-example.json
+    title: Quote Example
+  - type: Example
+    url: examples/kanye-rest-quote-list-example.json
+    title: QuoteList Example
+  - type: RateLimits
+    url: rate-limits/kanye-rest-rate-limits.yml
+features:
+  - name: Random Quote (JSON)
+    description: Returns a single random Kanye West quote wrapped in a JSON object.
+  - name: Random Quote (Plain Text)
+    description: Returns a single random Kanye West quote as plain text, useful for shell pipelines.
+  - name: Full Quote Collection
+    description: Returns the complete array of available Kanye West quotes as JSON.
+  - name: No Authentication
+    description: All endpoints are publicly accessible with no API key or token required.
+  - name: CORS-Enabled
+    description: Responses include Access-Control-Allow-Origin "*" so the API is callable from any browser.
+  - name: Edge-Hosted
+    description: Deployed on Cloudflare Workers, delivering responses from the global edge network.
+useCases:
+  - name: Hello-World API Demo
+    description: Used widely in tutorials and bootcamp curricula as a zero-friction example of consuming a REST API.
+  - name: Frontend Component Testing
+    description: Lightweight fixture for testing fetch / loading / error states in UI frameworks without bringing up a backend.
+  - name: Shell One-Liners
+    description: The /text endpoint produces shell-friendly output for cron jobs, daily-quote scripts, and motd files.
+  - name: Bot and Chatbot Integrations
+    description: Plain-text quotes are easily injected into Slack, Discord, and Twitter bots.
+integrations:
+  - name: Cloudflare Workers
+    description: API runtime — every request is served from a Cloudflare Worker at the edge.
+  - name: GitHub
+    description: Source of truth for the open source implementation and release history.
+solutions:
+  - name: Public-APIs Catalog Entry
+    description: Registered in the community-maintained public-apis directory under the Personality category.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
