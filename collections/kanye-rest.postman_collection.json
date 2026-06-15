@@ -1,0 +1,347 @@
+{
+  "item": [
+    {
+      "id": "1f80e4fc-a3eb-497c-a1c0-41c87fc486d9",
+      "name": "Quotes",
+      "description": {
+        "content": "Endpoints that return random or bulk Kanye West quotes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "652ed164-8413-4697-9c0c-a4b505e28151",
+          "name": "Kanye REST Get Random Quote",
+          "request": {
+            "name": "Kanye REST Get Random Quote",
+            "description": {
+              "content": "Returns a single random Kanye West quote wrapped in a JSON object. This is the canonical \"Kanye as a Service\" endpoint.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c4924e65-52d4-4413-a88e-e96940a0ccc4",
+              "name": "A random Kanye West quote as JSON.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"quote\": \"Everything you do in life stems from either fear or love\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dcb47eee-05a7-44e3-be83-4ece11fa246e",
+              "name": "Server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Internal server error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2789d17-ea96-4c08-aa0a-f9f7cf6ab74c",
+          "name": "Kanye REST Get Random Quote as Plain Text",
+          "request": {
+            "name": "Kanye REST Get Random Quote as Plain Text",
+            "description": {
+              "content": "Returns a single random Kanye West quote as a plain-text response body with content-type text/plain. Useful for shell pipelines and bots that want the quote without JSON wrapping.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "text"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ac96bc02-713f-4ca0-a1a0-02b0e94b6fa9",
+              "name": "A random Kanye West quote as plain text.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "Everything you do in life stems from either fear or love",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "67e53231-d2ad-4ce3-88fd-209ffa996832",
+              "name": "Server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "text"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Internal server error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e918a843-7abd-4aa1-829b-2a3204bc52ad",
+          "name": "Kanye REST List All Quotes",
+          "request": {
+            "name": "Kanye REST List All Quotes",
+            "description": {
+              "content": "Returns the complete collection of Kanye West quotes available to the service as a JSON array of strings. Note that upstream documentation flags that the response shape of this endpoint may change in the future.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "quotes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "72e1bcf9-3e0d-4a88-9aec-c3bf0e54b839",
+              "name": "Array of all available Kanye West quotes.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"All you have to be is yourself\",\n  \"Believe in your flyness...conquer your shyness.\",\n  \"Distraction is the enemy of vision\",\n  \"Everything you do in life stems from either fear or love\",\n  \"For me giving up is way harder than trying.\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "80982170-a69c-4230-b505-4276c2ff14c8",
+              "name": "Server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "quotes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"Internal server error\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.kanye.rest",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c2bf83c2-448f-4d26-a162-8decb9dfe2e9",
+    "name": "Kanye REST",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "A free, single-purpose REST API that returns random Kanye West quotes (\"Kanye as a Service\"). The service is hosted on Cloudflare Workers and exposes three endpoints: a JSON quote endpoint at the root, a plain-text quote endpoint at /text, and a full-quote-collection endpoint at /quotes. All endpoints are unauthenticated GETs with permissive CORS. Source code is MIT-licensed at https://github.com/ajzbc/kanye.rest.\n\nContact Support:\n Name: kanye.rest",
+      "type": "text/plain"
+    }
+  }
+}

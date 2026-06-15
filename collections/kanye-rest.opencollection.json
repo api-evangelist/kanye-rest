@@ -1,0 +1,51 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Kanye REST",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Quotes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Kanye REST Get Random Quote",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kanye.rest/"
+          },
+          "docs": "Returns a single random Kanye West quote wrapped in a JSON object. This is the canonical \"Kanye as a Service\" endpoint."
+        },
+        {
+          "info": {
+            "name": "Kanye REST Get Random Quote as Plain Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kanye.rest/text"
+          },
+          "docs": "Returns a single random Kanye West quote as a plain-text response body with content-type text/plain. Useful for shell pipelines and bots that want the quote without JSON wrapping."
+        },
+        {
+          "info": {
+            "name": "Kanye REST List All Quotes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.kanye.rest/quotes"
+          },
+          "docs": "Returns the complete collection of Kanye West quotes available to the service as a JSON array of strings. Note that upstream documentation flags that the response shape of this endpoint may change in the future."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

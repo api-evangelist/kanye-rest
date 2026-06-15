@@ -1,11 +1,9 @@
 aid: kanye-rest
 name: kanye.rest
 description: >-
-  Free single-purpose REST API that returns random Kanye West quotes, dubbed
-  "Kanye as a Service." Hosted on Cloudflare Workers, the API exposes a JSON
-  endpoint, a plain-text endpoint, and a full-quotes-array endpoint. The
-  underlying project is open source (MIT) under github.com/ajzbc/kanye.rest
-  and is a popular example of a minimal "fun" public API.
+  Free single-purpose REST API that returns random Kanye West quotes, dubbed "Kanye as a Service." Hosted on Cloudflare
+  Workers, the API exposes a JSON endpoint, a plain-text endpoint, and a full-quotes-array endpoint. The underlying
+  project is open source (MIT) under github.com/ajzbc/kanye.rest and is a popular example of a minimal "fun" public API.
 url: https://kanye.rest
 specificationVersion: '0.20'
 created: '2026-05-28'
@@ -24,11 +22,9 @@ tags:
 apis:
   - name: kanye.rest
     description: >-
-      The Kanye REST API returns random Kanye West quotes. Three operations
-      are exposed: a JSON quote endpoint at the root, a plain-text endpoint
-      at /text, and a full-collection endpoint at /quotes returning all
-      quotes as a JSON array. All endpoints are unauthenticated GETs with
-      permissive CORS.
+      The Kanye REST API returns random Kanye West quotes. Three operations are exposed: a JSON quote endpoint at the
+      root, a plain-text endpoint at /text, and a full-collection endpoint at /quotes returning all quotes as a JSON
+      array. All endpoints are unauthenticated GETs with permissive CORS.
     humanURL: https://kanye.rest
     baseURL: https://api.kanye.rest
     tags:
@@ -41,8 +37,6 @@ apis:
         url: https://github.com/ajzbc/kanye.rest
       - type: OpenAPI
         url: openapi/kanye-rest-openapi.yml
-      - type: NaftikoCapability
-        url: capabilities/kanye-rest-quotes.yaml
 common:
   - type: Website
     url: https://kanye.rest
