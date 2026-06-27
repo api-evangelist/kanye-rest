@@ -68,10 +68,10 @@ common:
   - type: JSONStructure
     url: json-structure/kanye-rest-quote-list-structure.json
     title: QuoteList
-  - type: Example
+  - type: Examples
     url: examples/kanye-rest-quote-example.json
     title: Quote Example
-  - type: Example
+  - type: Examples
     url: examples/kanye-rest-quote-list-example.json
     title: QuoteList Example
   - type: RateLimits
