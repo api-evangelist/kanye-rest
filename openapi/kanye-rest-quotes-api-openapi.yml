@@ -1,14 +1,8 @@
 openapi: 3.0.3
 info:
-  title: Kanye REST
-  description: >-
-    A free, single-purpose REST API that returns random Kanye West quotes
-    ("Kanye as a Service"). The service is hosted on Cloudflare Workers and
-    exposes three endpoints: a JSON quote endpoint at the root, a plain-text
-    quote endpoint at /text, and a full-quote-collection endpoint at /quotes.
-    All endpoints are unauthenticated GETs with permissive CORS. Source code
-    is MIT-licensed at https://github.com/ajzbc/kanye.rest.
-  version: '1.0.0'
+  title: Kanye REST Quotes API
+  description: 'A free, single-purpose REST API that returns random Kanye West quotes ("Kanye as a Service"). The service is hosted on Cloudflare Workers and exposes three endpoints: a JSON quote endpoint at the root, a plain-text quote endpoint at /text, and a full-quote-collection endpoint at /quotes. All endpoints are unauthenticated GETs with permissive CORS. Source code is MIT-licensed at https://github.com/ajzbc/kanye.rest.'
+  version: 1.0.0
   contact:
     name: kanye.rest
     url: https://kanye.rest
@@ -18,21 +12,19 @@ info:
   x-generated-from: documentation
   x-last-validated: '2026-05-29'
 servers:
-  - url: https://api.kanye.rest
-    description: Production edge endpoint hosted on Cloudflare Workers
+- url: https://api.kanye.rest
+  description: Production edge endpoint hosted on Cloudflare Workers
 tags:
-  - name: Quotes
-    description: Endpoints that return random or bulk Kanye West quotes.
+- name: Quotes
+  description: Endpoints that return random or bulk Kanye West quotes.
 paths:
   /:
     get:
       operationId: getRandomQuote
       summary: Kanye REST Get Random Quote
-      description: >-
-        Returns a single random Kanye West quote wrapped in a JSON object.
-        This is the canonical "Kanye as a Service" endpoint.
+      description: Returns a single random Kanye West quote wrapped in a JSON object. This is the canonical "Kanye as a Service" endpoint.
       tags:
-        - Quotes
+      - Quotes
       responses:
         '200':
           description: A random Kanye West quote as JSON.
@@ -64,12 +56,9 @@ paths:
     get:
       operationId: getRandomQuoteText
       summary: Kanye REST Get Random Quote as Plain Text
-      description: >-
-        Returns a single random Kanye West quote as a plain-text response
-        body with content-type text/plain. Useful for shell pipelines and
-        bots that want the quote without JSON wrapping.
+      description: Returns a single random Kanye West quote as a plain-text response body with content-type text/plain. Useful for shell pipelines and bots that want the quote without JSON wrapping.
       tags:
-        - Quotes
+      - Quotes
       responses:
         '200':
           description: A random Kanye West quote as plain text.
@@ -102,13 +91,9 @@ paths:
     get:
       operationId: listAllQuotes
       summary: Kanye REST List All Quotes
-      description: >-
-        Returns the complete collection of Kanye West quotes available to
-        the service as a JSON array of strings. Note that upstream
-        documentation flags that the response shape of this endpoint may
-        change in the future.
+      description: Returns the complete collection of Kanye West quotes available to the service as a JSON array of strings. Note that upstream documentation flags that the response shape of this endpoint may change in the future.
       tags:
-        - Quotes
+      - Quotes
       responses:
         '200':
           description: Array of all available Kanye West quotes.
@@ -121,11 +106,11 @@ paths:
                   summary: Default listAllQuotes 200 response
                   x-microcks-default: true
                   value:
-                    - All you have to be is yourself
-                    - Believe in your flyness...conquer your shyness.
-                    - Distraction is the enemy of vision
-                    - Everything you do in life stems from either fear or love
-                    - For me giving up is way harder than trying.
+                  - All you have to be is yourself
+                  - Believe in your flyness...conquer your shyness.
+                  - Distraction is the enemy of vision
+                  - Everything you do in life stems from either fear or love
+                  - For me giving up is way harder than trying.
         '500':
           description: Server error.
           content:
@@ -147,7 +132,7 @@ components:
       title: Quote
       description: A single random Kanye West quote wrapped in a JSON envelope.
       required:
-        - quote
+      - quote
       properties:
         quote:
           type: string
@@ -166,7 +151,7 @@ components:
       title: Error
       description: Error envelope returned by the global error handler when an unexpected exception occurs.
       required:
-        - message
+      - message
       properties:
         message:
           type: string
