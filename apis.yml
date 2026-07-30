@@ -1,4 +1,16 @@
 aid: kanye-rest
+accessModel:
+  pricing: unknown
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Unknown
+  confidence: low
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/kanye-rest.png
 name: kanye.rest
 description: >-
   Free single-purpose REST API that returns random Kanye West quotes, dubbed "Kanye as a Service." Hosted on Cloudflare
@@ -20,23 +32,20 @@ tags:
   - Cloudflare Workers
   - Public APIs
 apis:
-  - name: kanye.rest
-    description: >-
-      The Kanye REST API returns random Kanye West quotes. Three operations are exposed: a JSON quote endpoint at the
-      root, a plain-text endpoint at /text, and a full-collection endpoint at /quotes returning all quotes as a JSON
-      array. All endpoints are unauthenticated GETs with permissive CORS.
-    humanURL: https://kanye.rest
-    baseURL: https://api.kanye.rest
-    tags:
-      - Personality
-      - Quotes
-    properties:
-      - type: Documentation
-        url: https://kanye.rest
-      - type: SourceCode
-        url: https://github.com/ajzbc/kanye.rest
-      - type: OpenAPI
-        url: openapi/kanye-rest-openapi.yml
+- aid: kanye-rest:kanye-rest-quotes-api
+  name: kanye.rest Quotes API
+  description: Endpoints that return random or bulk Kanye West quotes.
+  humanURL: https://kanye.rest
+  baseURL: https://api.kanye.rest
+  tags:
+  - Quotes
+  properties:
+  - type: OpenAPI
+    url: openapi/kanye-rest-quotes-api-openapi.yml
+  - type: Documentation
+    url: https://kanye.rest
+  - type: SourceCode
+    url: https://github.com/ajzbc/kanye.rest
 common:
   - type: AgenticAccess
     url: agentic-access/kanye-rest-agentic-access.yml
