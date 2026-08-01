@@ -1,0 +1,14 @@
+{
+  "provider": "kanye-rest",
+  "sources": [
+    "kanye-rest-quotes-api-openapi.yml"
+  ],
+  "outputs": [
+    "kanye-rest-quotes-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

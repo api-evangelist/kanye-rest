@@ -1,0 +1,174 @@
+openapi: 3.0.3
+info:
+  title: Kanye REST
+  description: >-
+    A free, single-purpose REST API that returns random Kanye West quotes
+    ("Kanye as a Service"). The service is hosted on Cloudflare Workers and
+    exposes three endpoints: a JSON quote endpoint at the root, a plain-text
+    quote endpoint at /text, and a full-quote-collection endpoint at /quotes.
+    All endpoints are unauthenticated GETs with permissive CORS. Source code
+    is MIT-licensed at https://github.com/ajzbc/kanye.rest.
+  version: '1.0.0'
+  contact:
+    name: kanye.rest
+    url: https://kanye.rest
+  license:
+    name: MIT
+    url: https://github.com/ajzbc/kanye.rest/blob/master/LICENSE
+  x-generated-from: documentation
+  x-last-validated: '2026-05-29'
+servers:
+  - url: https://api.kanye.rest
+    description: Production edge endpoint hosted on Cloudflare Workers
+tags:
+  - name: Quotes
+    description: Endpoints that return random or bulk Kanye West quotes.
+paths:
+  /:
+    get:
+      operationId: getRandomQuote
+      summary: Kanye REST Get Random Quote
+      description: >-
+        Returns a single random Kanye West quote wrapped in a JSON object.
+        This is the canonical "Kanye as a Service" endpoint.
+      tags:
+        - Quotes
+      responses:
+        '200':
+          description: A random Kanye West quote as JSON.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Quote'
+              examples:
+                GetRandomQuote200Example:
+                  summary: Default getRandomQuote 200 response
+                  x-microcks-default: true
+                  value:
+                    quote: Everything you do in life stems from either fear or love
+        '500':
+          description: Server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                GetRandomQuote500Example:
+                  summary: Default getRandomQuote 500 response
+                  value:
+                    message: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /text:
+    get:
+      operationId: getRandomQuoteText
+      summary: Kanye REST Get Random Quote as Plain Text
+      description: >-
+        Returns a single random Kanye West quote as a plain-text response
+        body with content-type text/plain. Useful for shell pipelines and
+        bots that want the quote without JSON wrapping.
+      tags:
+        - Quotes
+      responses:
+        '200':
+          description: A random Kanye West quote as plain text.
+          content:
+            text/plain:
+              schema:
+                type: string
+                description: The raw quote text, with no surrounding JSON.
+                example: Everything you do in life stems from either fear or love
+              examples:
+                GetRandomQuoteText200Example:
+                  summary: Default getRandomQuoteText 200 response
+                  x-microcks-default: true
+                  value: Everything you do in life stems from either fear or love
+        '500':
+          description: Server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                GetRandomQuoteText500Example:
+                  summary: Default getRandomQuoteText 500 response
+                  value:
+                    message: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /quotes:
+    get:
+      operationId: listAllQuotes
+      summary: Kanye REST List All Quotes
+      description: >-
+        Returns the complete collection of Kanye West quotes available to
+        the service as a JSON array of strings. Note that upstream
+        documentation flags that the response shape of this endpoint may
+        change in the future.
+      tags:
+        - Quotes
+      responses:
+        '200':
+          description: Array of all available Kanye West quotes.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuoteList'
+              examples:
+                ListAllQuotes200Example:
+                  summary: Default listAllQuotes 200 response
+                  x-microcks-default: true
+                  value:
+                    - All you have to be is yourself
+                    - Believe in your flyness...conquer your shyness.
+                    - Distraction is the enemy of vision
+                    - Everything you do in life stems from either fear or love
+                    - For me giving up is way harder than trying.
+        '500':
+          description: Server error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                ListAllQuotes500Example:
+                  summary: Default listAllQuotes 500 response
+                  value:
+                    message: Internal server error
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Quote:
+      type: object
+      title: Quote
+      description: A single random Kanye West quote wrapped in a JSON envelope.
+      required:
+        - quote
+      properties:
+        quote:
+          type: string
+          description: The Kanye West quote text returned by the API.
+          example: Everything you do in life stems from either fear or love
+    QuoteList:
+      type: array
+      title: QuoteList
+      description: The complete collection of available Kanye West quotes as plain strings.
+      items:
+        type: string
+        description: A single Kanye West quote text.
+        example: Believe in your flyness...conquer your shyness.
+    Error:
+      type: object
+      title: Error
+      description: Error envelope returned by the global error handler when an unexpected exception occurs.
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: Human-readable error message describing what went wrong.
+          example: Internal server error
