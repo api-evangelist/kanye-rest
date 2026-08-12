@@ -47,6 +47,8 @@ apis:
   - type: SourceCode
     url: https://github.com/ajzbc/kanye.rest
 common:
+  - type: IssueTracker
+    url: https://github.com/ajzbc/kanye.rest/issues
   - type: AgenticAccess
     url: agentic-access/kanye-rest-agentic-access.yml
   - type: DomainSecurity
