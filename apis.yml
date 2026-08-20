@@ -28,6 +28,12 @@ x-tier-reason: bulk-registered-from-public-apis
 tags:
   - Personality
   - Quotes
+  - Open-Source
+  - Cloudflare Workers
+  - Public APIs
+tags_raw:
+  - Personality
+  - Quotes
   - Open Source
   - Cloudflare Workers
   - Public APIs
