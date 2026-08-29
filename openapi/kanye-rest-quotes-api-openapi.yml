@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Kanye REST Quotes API
   description: 'A free, single-purpose REST API that returns random Kanye West quotes ("Kanye as a Service"). The service is hosted on Cloudflare Workers and exposes three endpoints: a JSON quote endpoint at the root, a plain-text quote endpoint at /text, and a full-quote-collection endpoint at /quotes. All endpoints are unauthenticated GETs with permissive CORS. Source code is MIT-licensed at https://github.com/ajzbc/kanye.rest.'
@@ -127,6 +127,17 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Error:
+      type: object
+      title: Error
+      description: Error envelope returned by the global error handler when an unexpected exception occurs.
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Human-readable error message describing what went wrong.
+          example: Internal server error
     Quote:
       type: object
       title: Quote
@@ -146,14 +157,3 @@ components:
         type: string
         description: A single Kanye West quote text.
         example: Believe in your flyness...conquer your shyness.
-    Error:
-      type: object
-      title: Error
-      description: Error envelope returned by the global error handler when an unexpected exception occurs.
-      required:
-      - message
-      properties:
-        message:
-          type: string
-          description: Human-readable error message describing what went wrong.
-          example: Internal server error
