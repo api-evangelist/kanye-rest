@@ -1,7 +1,7 @@
 {
   "provider": "kanye-rest",
   "sources": [
-    "kanye-rest-quotes-api-openapi.yml"
+    "_ae-authored/kanye-rest-openapi.yml"
   ],
   "outputs": [
     "kanye-rest-quotes-api-openapi.yml"
@@ -10,8 +10,11 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "kanye-rest-quotes-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "kanye-rest-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "kanye-rest-quotes-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

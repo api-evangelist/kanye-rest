@@ -138,6 +138,14 @@ components:
           type: string
           description: Human-readable error message describing what went wrong.
           example: Internal server error
+    QuoteList:
+      type: array
+      title: QuoteList
+      description: The complete collection of available Kanye West quotes as plain strings.
+      items:
+        type: string
+        description: A single Kanye West quote text.
+        example: Believe in your flyness...conquer your shyness.
     Quote:
       type: object
       title: Quote
@@ -149,11 +157,3 @@ components:
           type: string
           description: The Kanye West quote text returned by the API.
           example: Everything you do in life stems from either fear or love
-    QuoteList:
-      type: array
-      title: QuoteList
-      description: The complete collection of available Kanye West quotes as plain strings.
-      items:
-        type: string
-        description: A single Kanye West quote text.
-        example: Believe in your flyness...conquer your shyness.
