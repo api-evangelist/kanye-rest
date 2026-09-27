@@ -1,15 +1,20 @@
 aid: kanye-rest
 deliveryModel:
-  model: unknown
-  open_source: unknown
+  model: self-hosted
+  license: MIT
+  license_evidence:
+    repo: ajzbc/kanye.rest
+    spdx: MIT
+    stars: 957
+  open_source: true
   commercial: false
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: Self-hosted open source · you run it yourself
+  confidence: medium
   source:
   - openapi
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-license
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: unknown
@@ -40,7 +45,7 @@ x-tier-reason: bulk-registered-from-public-apis
 tags:
   - Personality
   - Quotes
-  - Open-Source
+  - Open Source
   - Cloudflare Workers
   - Public APIs
 tags_raw:
@@ -49,6 +54,7 @@ tags_raw:
   - Open Source
   - Cloudflare Workers
   - Public APIs
+  - Open-Source
 apis:
 - aid: kanye-rest:kanye-rest-quotes-api
   name: kanye.rest Quotes API

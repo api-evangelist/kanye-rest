@@ -127,17 +127,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Error:
-      type: object
-      title: Error
-      description: Error envelope returned by the global error handler when an unexpected exception occurs.
-      required:
-      - message
-      properties:
-        message:
-          type: string
-          description: Human-readable error message describing what went wrong.
-          example: Internal server error
     QuoteList:
       type: array
       title: QuoteList
@@ -157,3 +146,14 @@ components:
           type: string
           description: The Kanye West quote text returned by the API.
           example: Everything you do in life stems from either fear or love
+    Error:
+      type: object
+      title: Error
+      description: Error envelope returned by the global error handler when an unexpected exception occurs.
+      required:
+      - message
+      properties:
+        message:
+          type: string
+          description: Human-readable error message describing what went wrong.
+          example: Internal server error
