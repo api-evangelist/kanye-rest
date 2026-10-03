@@ -135,17 +135,6 @@ components:
         type: string
         description: A single Kanye West quote text.
         example: Believe in your flyness...conquer your shyness.
-    Quote:
-      type: object
-      title: Quote
-      description: A single random Kanye West quote wrapped in a JSON envelope.
-      required:
-      - quote
-      properties:
-        quote:
-          type: string
-          description: The Kanye West quote text returned by the API.
-          example: Everything you do in life stems from either fear or love
     Error:
       type: object
       title: Error
@@ -157,3 +146,14 @@ components:
           type: string
           description: Human-readable error message describing what went wrong.
           example: Internal server error
+    Quote:
+      type: object
+      title: Quote
+      description: A single random Kanye West quote wrapped in a JSON envelope.
+      required:
+      - quote
+      properties:
+        quote:
+          type: string
+          description: The Kanye West quote text returned by the API.
+          example: Everything you do in life stems from either fear or love
