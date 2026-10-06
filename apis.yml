@@ -36,7 +36,7 @@ description: >-
 url: https://kanye.rest
 specificationVersion: '0.23'
 created: '2026-05-28'
-modified: '2026-05-29'
+modified: '2026-10-06'
 x-source: public-apis/public-apis
 x-type: opensource
 x-category: Personality
@@ -71,6 +71,8 @@ apis:
   - type: SourceCode
     url: https://github.com/ajzbc/kanye.rest
 common:
+  - url: https://kanye.rest/blog/
+    type: Blog
   - type: IssueTracker
     url: https://github.com/ajzbc/kanye.rest/issues
   - type: AgenticAccess
