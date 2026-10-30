@@ -1,4 +1,4 @@
-# kanye.rest (kanye-rest)
+# kanye.rest
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,62 +66,140 @@
 
 Free single-purpose REST API that returns random Kanye West quotes, dubbed "Kanye as a Service." Hosted on Cloudflare Workers, the API exposes a JSON endpoint, a plain-text endpoint, and a full-quotes-array endpoint. The underlying project is open source (MIT) under github.com/ajzbc/kanye.rest and is a popular example of a minimal "fun" public API.
 
-**APIs.json:** [https://kanye.rest](https://kanye.rest)
+**Areas:** Personality · Quotes · Open Source · Cloudflare Workers · Public APIs
 
-## Tags
+## kanye.rest on APIs.io
 
-- Personality
-- Quotes
-- Open Source
-- Cloudflare Workers
-- Public APIs
+Everything profiled for kanye.rest is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/kanye-rest/](https://apis.io/providers/kanye-rest/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (1)
 
-- **Created:** 2026-05-28
-- **Modified:** 2026-05-29
+- [kanye.rest Quotes API](https://apis.io/apis/kanye-rest/kanye-rest-quotes-api/) — Endpoints that return random or bulk Kanye West quotes.
 
-## APIs
+### Published properties
 
-### kanye.rest
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Kanye REST API returns random Kanye West quotes. Three operations are exposed: a JSON quote endpoint at the root, a plain-text endpoint at /text, and a full-collection endpoint at /quotes returning all quotes as a JSON array. All endpoints are unauthenticated GETs with permissive CORS.
+#### Agentic access (1)
 
-- **Human URL:** [https://kanye.rest](https://kanye.rest)
-- **Base URL:** `https://api.kanye.rest`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Kanye Rest Agentic Access](https://apis.io/agentic-access/kanye-rest/kanye-rest-agentic-access/)
 
-- Personality
-- Quotes
+#### JSON Schema (2)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://kanye.rest)
-- [Source Code](https://github.com/ajzbc/kanye.rest)
-- [OpenAPI](openapi/kanye-rest-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/kanye-rest.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/kanye-rest.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Quote](https://apis.io/schemas/kanye-rest/kanye-rest-quote/)
+- [QuoteList](https://apis.io/schemas/kanye-rest/kanye-rest-quote-list/)
 
-## Common Properties
+#### JSON Structure (2)
+
+Data models expressed in JSON Structure.
+
+- [Kanye Rest Quote List Structure](https://apis.io/json-structure/kanye-rest/kanye-rest-quote-list-structure/)
+- [Kanye Rest Quote Structure](https://apis.io/json-structure/kanye-rest/kanye-rest-quote-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Kanye Rest Context](https://apis.io/jsonld/kanye-rest/kanye-rest-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Kanye Rest Vocabulary](https://apis.io/vocabularies/kanye-rest/kanye-rest-vocabulary/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Kanye Rest Quote Example](https://apis.io/examples/kanye-rest/kanye-rest-quote-example/)
+
+#### Collections (2)
+
+Postman and Open Collection request collections.
+
+- [Kanye REST](https://apis.io/collections/kanye-rest/open-kanye-rest/)
+- [Kanye REST Quotes API](https://apis.io/collections/kanye-rest/open-kanye-rest-quotes-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [kanye.rest — jsonschema rules](https://apis.io/rules/kanye-rest/kanye-rest-jsonschema-spectral-rules/)
+- [kanye.rest API Rules](https://apis.io/rules/kanye-rest/kanye-rest-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Kanye Rest Domain Security](https://apis.io/security/kanye-rest/kanye-rest-domain-security/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Kanye Rest Rate Limits](https://apis.io/rate-limits/kanye-rest/kanye-rest-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://kanye.rest)
-- [Source Code](https://github.com/ajzbc/kanye.rest)
-- [License](https://github.com/ajzbc/kanye.rest/blob/master/LICENSE)
-- [C L I](https://github.com/ajzbc/kanye.rest-cli)
-- [Public APIs Listing](https://github.com/public-apis/public-apis)
-- [Spectral Rules](rules/kanye-rest-spectral-rules.yml)
-- [Vocabulary](vocabulary/kanye-rest-vocabulary.yml)
-- [JSON-LD](json-ld/kanye-rest-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [JSON Schema](json-schema/kanye-rest-quote-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/kanye-rest-quote-list-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Structure](json-structure/kanye-rest-quote-structure.json)
-- [JSON Structure](json-structure/kanye-rest-quote-list-structure.json)
-- [Example](examples/kanye-rest-quote-example.json)
-- [Example](examples/kanye-rest-quote-list-example.json)
-- [Rate Limits](rate-limits/kanye-rest-rate-limits.yml)
+- [Blog](https://kanye.rest/blog/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 18.9** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 21.3 |
+| Contract governance | 27.3 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 9.5 |
+| Access clarity | 0.0 |
+
+**Agent readiness 30.3** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/kanye-rest/](https://apis.io/providers/kanye-rest/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for kanye.rest: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/kanye-rest/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
